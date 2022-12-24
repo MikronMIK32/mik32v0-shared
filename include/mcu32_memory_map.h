@@ -183,6 +183,8 @@
 #define PM_CLOCK_GPIO_2_M       (1 << PM_CLOCK_GPIO_2_S)
 #define PM_CLOCK_ANALOG_REG_S   15
 #define PM_CLOCK_ANALOG_REG_M   (1 << PM_CLOCK_ANALOG_REG_S)
+#define PM_CLOCK_GPIO_IRQ_S     16
+#define PM_CLOCK_GPIO_IRQ_M     (1 << PM_CLOCK_GPIO_IRQ_S)
 
 // Timer connection to PM multiplexor controling timer inputs
 //
