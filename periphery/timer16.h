@@ -37,21 +37,36 @@
 #define TIMER16_ENCODER_DISABLE_M           (0x0 << TIMER16_ENCODER_S)
 #define TIMER16_ENCODER_ENABLE_M            (0x1 << TIMER16_ENCODER_S)
 
-#define TIMER16_INT_CMP_MATCH_S             0
-#define TIMER16_INT_CMP_MATCH_M             (0x1 << TIMER16_INT_CMP_MATCH_S)
-#define TIMER16_INT_ARR_MATCH_S             1
-#define TIMER16_INT_ARR_MATCH_M             (0x1 << TIMER16_INT_ARR_MATCH_S)
-#define TIMER16_INT_EXT_TRIG_S              2
-#define TIMER16_INT_EXT_TRIG_M              (0x1 << TIMER16_INT_EXT_TRIG_S)
-#define TIMER16_INT_CMP_OK_S                3
-#define TIMER16_INT_CMP_OK_M                (0x1 << TIMER16_INT_CMP_OK_S)
-#define TIMER16_INT_ARR_OK_S                4
-#define TIMER16_INT_ARR_OK_M                (0x1 << TIMER16_INT_ARR_OK_S)
-#define TIMER16_INT_UP_S                    5
-#define TIMER16_INT_UP_M                    (0x1 << TIMER16_INT_UP_S)
-#define TIMER16_INT_DOWN_S                  6
-#define TIMER16_INT_DOWN_M                  (0x1 << TIMER16_INT_DOWN_S)
+#define TIMER16_ISR_CMP_MATCH_S             0
+#define TIMER16_ISR_CMP_MATCH_M             (0x1 << TIMER16_ISR_CMP_MATCH_S)
+#define TIMER16_ISR_ARR_MATCH_S             1
+#define TIMER16_ISR_ARR_MATCH_M             (0x1 << TIMER16_ISR_ARR_MATCH_S)
+#define TIMER16_ISR_EXT_TRIG_S              2
+#define TIMER16_ISR_EXT_TRIG_M              (0x1 << TIMER16_ISR_EXT_TRIG_S)
+#define TIMER16_ISR_CMP_OK_S                3
+#define TIMER16_ISR_CMP_OK_M                (0x1 << TIMER16_ISR_CMP_OK_S)
+#define TIMER16_ISR_ARR_OK_S                4
+#define TIMER16_ISR_ARR_OK_M                (0x1 << TIMER16_ISR_ARR_OK_S)
+#define TIMER16_ISR_UP_S                    5
+#define TIMER16_ISR_UP_M                    (0x1 << TIMER16_ISR_UP_S)
+#define TIMER16_ISR_DOWN_S                  6
+#define TIMER16_ISR_DOWN_M                  (0x1 << TIMER16_ISR_DOWN_S)
 
+/* Регистр ICR */
+#define TIMER16_ICR_DOWNCF_S                6
+#define TIMER16_ICR_DOWNCF_M                (0x1 << TIMER16_ICR_DOWNCF_S)
+#define TIMER16_ICR_UPCF_S                  5
+#define TIMER16_ICR_UPCF_M                  (0x1 << TIMER16_ICR_UPCF_S)
+#define TIMER16_ICR_ARROKCF_S               4
+#define TIMER16_ICR_ARROKCF_M               (0x1 << TIMER16_ICR_ARROKCF_S)
+#define TIMER16_ICR_CMPOKCF_S               3
+#define TIMER16_ICR_CMPOKCF_M               (0x1 << TIMER16_ICR_CMPOKCF_S)
+#define TIMER16_ICR_EXTTRIGCF_S             2
+#define TIMER16_ICR_EXTTRIGCF_M             (0x1 << TIMER16_ICR_EXTTRIGCF_S)
+#define TIMER16_ICR_ARRMCF_S                1
+#define TIMER16_ICR_ARRMCF_M                (0x1 << TIMER16_ICR_ARRMCF_S)
+#define TIMER16_ICR_CMPMCF_S                0
+#define TIMER16_ICR_CMPMCF_M                (0x1 << TIMER16_ICR_CMPMCF_S)
 
 #define TIMER16_CFGR_ENC_S                  24
 #define TIMER16_CFGR_ENC_M                  (1 << TIMER16_CFGR_ENC_S)
@@ -93,6 +108,12 @@
 #define TIMER16_CFGR_CKSEL_INTERNAL_M       (0x0 << TIMER16_CFGR_CKSEL_S)
 #define TIMER16_CFGR_CKSEL_EXTERNAL_M       (0x1 << TIMER16_CFGR_CKSEL_S)
 
+#define TIMER16_CR_CNTSTRT_S                2
+#define TIMER16_CR_CNTSTRT_M                (1 << TIMER16_CR_CNTSTRT_S)
+#define TIMER16_CR_SNGSTRT_S                1
+#define TIMER16_CR_SNGSTRT_M                (1 << TIMER16_CR_SNGSTRT_S)
+#define TIMER16_CR_ENABLE_S                 0
+#define TIMER16_CR_ENABLE_M                 (1 << TIMER16_CR_ENABLE_S)
 
 #ifndef _ASSEMBLER_
     #include <inttypes.h>
