@@ -7,7 +7,7 @@
 #define DMA_CHN_DONE_ERROR_ENABLE	3
 #define DMA_CHN_DONE_NOT_DONE	4
 */
-#include "periphery/dma_config.h"
+#include "dma_config.h"
 
 /*
     Следует пользоваться структурами задач для DMA так, чтобы они не выходили 

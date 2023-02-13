@@ -1,7 +1,7 @@
 #ifndef SPI_LIB_H_INCLUDED
 #define SPI_LIB_H_INCLUDED
 
-#include "periphery/spi.h"
+#include "spi.h"
 
 
 void SPI_CS_Enable(SPI_TypeDef* SPI, unsigned int CS_M);

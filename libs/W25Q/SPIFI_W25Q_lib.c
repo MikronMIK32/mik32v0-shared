@@ -1,6 +1,6 @@
 #include "W25Q.h"
 #include "SPIFI_W25Q_lib.h"
-#include "periphery/spifi.h"
+#include "spifi.h"
 #include "mcu32_memory_map.h"
 
 
@@ -13,7 +13,7 @@ unsigned int SPIFI_W25Q_ReadID(uint8_t *ID)  {
 	unsigned int RgCmd = 0;
 	unsigned int ResIntrqWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -37,13 +37,13 @@ unsigned int SPIFI_W25Q_ReadID(uint8_t *ID)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
     ID[0] = SPIFI_CONFIG->DATA8;
@@ -59,7 +59,7 @@ unsigned int SPIFI_W25Q_ReadStatusRegister1(uint8_t *RgStatus1)  {
 	unsigned int RgCmd = 0;
 	unsigned int ResIntrqWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -83,13 +83,13 @@ unsigned int SPIFI_W25Q_ReadStatusRegister1(uint8_t *RgStatus1)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
     *RgStatus1 = SPIFI_CONFIG->DATA8;
@@ -103,7 +103,7 @@ unsigned int SPIFI_W25Q_ReadStatusRegister2(uint8_t *RgStatus2)  {
 	unsigned int RgCmd = 0;
 	unsigned int ResIntrqWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -127,13 +127,13 @@ unsigned int SPIFI_W25Q_ReadStatusRegister2(uint8_t *RgStatus2)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
     *RgStatus2 = SPIFI_CONFIG->DATA8;
@@ -149,7 +149,7 @@ unsigned int SPIFI_W25Q_ReadStatusRegister3(uint8_t *RgStatus3)  {
 	unsigned int i = 0;
 	unsigned int ResIntrqWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -173,13 +173,13 @@ unsigned int SPIFI_W25Q_ReadStatusRegister3(uint8_t *RgStatus3)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
     *RgStatus3 = SPIFI_CONFIG->DATA8;
@@ -197,10 +197,10 @@ unsigned int SPIFI_W25Q_WriteStatusRegister1(uint8_t RgStatus1)  {
 	unsigned int ResIntrqWaitSet = 0;
 	unsigned int ResBusyWait = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
-	//-----Посылка WriteEnable-------
+	//-----пїЅпїЅпїЅпїЅпїЅпїЅпїЅ WriteEnable-------
 	ResWriteEnable = SPIFI_W25Q_WriteEnable();
 	if(ResWriteEnable==0)  {
 		return 0;
@@ -230,19 +230,19 @@ unsigned int SPIFI_W25Q_WriteStatusRegister1(uint8_t RgStatus1)  {
     //DATA
     SPIFI_CONFIG->DATA8 = RgStatus1;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
-    //Ожидание окончания записи регистра
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     ResBusyWait = SPIFI_W25Q_WaitBusyClear();
     if(ResBusyWait==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
 
@@ -259,10 +259,10 @@ unsigned int SPIFI_W25Q_WriteStatusRegister2(uint8_t RgStatus2)  {
 	unsigned int ResIntrqWaitSet = 0;
 	unsigned int ResBusyWait = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
-	//-----Посылка WriteEnable-------
+	//-----пїЅпїЅпїЅпїЅпїЅпїЅпїЅ WriteEnable-------
 	ResWriteEnable = SPIFI_W25Q_WriteEnable();
 	if(ResWriteEnable==0)  {
 		return 0;
@@ -292,19 +292,19 @@ unsigned int SPIFI_W25Q_WriteStatusRegister2(uint8_t RgStatus2)  {
     //DATA
     SPIFI_CONFIG->DATA8 = RgStatus2;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
-    //Ожидание окончания записи регистра
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     ResBusyWait = SPIFI_W25Q_WaitBusyClear();
     if(ResBusyWait==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
 
@@ -321,10 +321,10 @@ unsigned int SPIFI_W25Q_WriteStatusRegister3(uint8_t RgStatus3)  {
 	unsigned int ResIntrqWaitSet = 0;
 	unsigned int ResBusyWait = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
-	//-----Посылка WriteEnable-------
+	//-----пїЅпїЅпїЅпїЅпїЅпїЅпїЅ WriteEnable-------
 	ResWriteEnable = SPIFI_W25Q_WriteEnable();
 	if(ResWriteEnable==0)  {
 		return 0;
@@ -354,19 +354,19 @@ unsigned int SPIFI_W25Q_WriteStatusRegister3(uint8_t RgStatus3)  {
     //DATA
     SPIFI_CONFIG->DATA8 = RgStatus3;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
-    //Ожидание окончания записи регистра
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     ResBusyWait = SPIFI_W25Q_WaitBusyClear();
     if(ResBusyWait==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
 
@@ -379,7 +379,7 @@ unsigned int SPIFI_W25Q_WriteEnable(void)  {
 	unsigned int RgCmd = 0;
 	unsigned int ResIntrqWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -403,13 +403,13 @@ unsigned int SPIFI_W25Q_WriteEnable(void)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	return 1;
@@ -422,13 +422,13 @@ unsigned int SPIFI_W25Q_BlockUnlock(unsigned int BlockAddress)  {
 	unsigned int ResIntrqWaitSet = 0;
 	unsigned int ResWriteEnable = 0;
 
-	//Посылка Write Enable
+	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Write Enable
     ResWriteEnable = SPIFI_W25Q_WriteEnable();
     if(ResWriteEnable==0)  {
     	return 0;
     }
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -452,13 +452,13 @@ unsigned int SPIFI_W25Q_BlockUnlock(unsigned int BlockAddress)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	return 1;
@@ -470,7 +470,7 @@ unsigned int SPIFI_W25Q_ByteRead(unsigned int ByteAddress, uint8_t *Byte)  {
 	unsigned int RgCmd = 0;
 	unsigned int ResIntrqWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -494,13 +494,13 @@ unsigned int SPIFI_W25Q_ByteRead(unsigned int ByteAddress, uint8_t *Byte)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
     *Byte = SPIFI_CONFIG->DATA8;
@@ -514,7 +514,7 @@ unsigned int SPIFI_W25Q_ByteFastRead(unsigned int ByteAddress, uint8_t *Byte)  {
 	unsigned int RgCmd = 0;
 	unsigned int ResIntrqWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -538,13 +538,13 @@ unsigned int SPIFI_W25Q_ByteFastRead(unsigned int ByteAddress, uint8_t *Byte)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
     *Byte = SPIFI_CONFIG->DATA8;
@@ -558,7 +558,7 @@ unsigned int SPIFI_W25Q_ByteFastReadDual(unsigned int ByteAddress, uint8_t *Byte
 	unsigned int RgCmd = 0;
 	unsigned int ResIntrqWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -585,13 +585,13 @@ unsigned int SPIFI_W25Q_ByteFastReadDual(unsigned int ByteAddress, uint8_t *Byte
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
     *Byte = SPIFI_CONFIG->DATA8;
@@ -605,7 +605,7 @@ unsigned int SPIFI_W25Q_ByteFastReadQuad(unsigned int ByteAddress, uint8_t *Byte
 	unsigned int RgCmd = 0;
 	unsigned int ResIntrqWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -617,7 +617,7 @@ unsigned int SPIFI_W25Q_ByteFastReadQuad(unsigned int ByteAddress, uint8_t *Byte
     //CLIMIT
     SPIFI_CONFIG->CLIMIT = 0x00000000;
 
-    //Сбрасываем бит CTRL:DUAL, чтобы использовать 4 провода
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ CTRL:DUAL, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 4 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     SPIFI_CONFIG->CTRL &= ~(1<<SPIFI_CONFIG_CTRL_DUAL_S);
 
     //CMD
@@ -632,13 +632,13 @@ unsigned int SPIFI_W25Q_ByteFastReadQuad(unsigned int ByteAddress, uint8_t *Byte
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
     *Byte = SPIFI_CONFIG->DATA8;
@@ -667,7 +667,7 @@ unsigned int SPIFI_W25Q_SectorErase4K(unsigned int SectorAddress)  {
 	SPI_CS_Disable(W25Q_SPI, W25Q_SPI_CS);
 
 	SomeDelay(100);
-    	//while((K1636_ReadStatusRegister() & K1636RR_STATUS_BSY_M)!=0) {}	//!!!Надо поправить!!!
+    	//while((K1636_ReadStatusRegister() & K1636RR_STATUS_BSY_M)!=0) {}	//!!!пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!!!
 	for(i=0; i<W25Q_TIMEOUT; i++)  {
 		if((W25Q_ReadStatusRegister1() & W25Q_STATUS_1_BUSY_M) == 0)  {
 			return 1;
@@ -684,19 +684,19 @@ unsigned int SPIFI_W25Q_BlockErase64K(unsigned int BlockAddress)  {
 	unsigned int ResIntrqWaitSet = 0;
 	unsigned int ResWriteEnable = 0;
 
-	//Посылка Block Unlock
+	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Block Unlock
     ResBlockUnlock = SPIFI_W25Q_BlockUnlock(BlockAddress);
     if(ResBlockUnlock==0)  {
     	return 0;
     }
 
-	//Посылка Write Enable
+	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Write Enable
     ResWriteEnable = SPIFI_W25Q_WriteEnable();
     if(ResWriteEnable==0)  {
     	return 0;
     }
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -720,13 +720,13 @@ unsigned int SPIFI_W25Q_BlockErase64K(unsigned int BlockAddress)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
     return 1;
@@ -739,13 +739,13 @@ unsigned int SPIFI_W25Q_ChipErase()  {
     unsigned int ResWriteEnable = 0;
 
 
-    //Посылка Write Enable
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Write Enable
     ResWriteEnable = SPIFI_W25Q_WriteEnable();
     if(ResWriteEnable==0)  {
         return 0;
     }
 
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
     SPIFI_StatIntrqClear();
 
     //ADDRESS
@@ -770,13 +770,13 @@ unsigned int SPIFI_W25Q_ChipErase()  {
     SPIFI_CONFIG->CMD = RgCmd;
 
     
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-        //надо добавить установку бита STAT:RESET
+        //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
         return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
     SPIFI_StatIntrqClear();
 
     return 1;
@@ -789,7 +789,7 @@ unsigned int SPIFI_W25Q_WaitBusyClear(void)  {
 	unsigned int ResIntrqWaitSet = 0;
 	uint8_t RgStatus = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -813,18 +813,18 @@ unsigned int SPIFI_W25Q_WaitBusyClear(void)  {
     RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Ожидание сброса бита STAT->BUSY
-    //Когда BUSY станет равным нулю, команда будет считаться законченой,
-    //и установится бит INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->BUSY
+    //пїЅпїЅпїЅпїЅпїЅ BUSY пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ,
+    //пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
-	//Читаем FIFO, т.к. там остался регистр статуса микросхемы
+	//пїЅпїЅпїЅпїЅпїЅпїЅ FIFO, пїЅ.пїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	RgStatus = SPIFI_CONFIG->DATA8;
 
     return 1;
@@ -840,16 +840,16 @@ unsigned int SPIFI_W25Q_ByteWrite(unsigned int ByteAddress, uint8_t Byte)  {
 	unsigned int ResIntrqWaitSet = 0;
 	unsigned int ResBusyWait = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
-	//-----Посылка WriteEnable-------
+	//-----пїЅпїЅпїЅпїЅпїЅпїЅпїЅ WriteEnable-------
 	ResWriteEnable = SPIFI_W25Q_WriteEnable();
 	if(ResWriteEnable==0)  {
 		return 0;
 	}
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -876,21 +876,21 @@ unsigned int SPIFI_W25Q_ByteWrite(unsigned int ByteAddress, uint8_t Byte)  {
     //DATA
     SPIFI_CONFIG->DATA8 = Byte;
 
-    //Ожидание сброса бита STAT->BUSY
-    //Когда BUSY станет равным нулю, команда будет считаться законченой,
-    //и установится бит INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->BUSY
+    //пїЅпїЅпїЅпїЅпїЅ BUSY пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ,
+    //пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
-    //-----------Опрос флага Busy-------------
+    //-----------пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ Busy-------------
     ResBusyWait = SPIFI_W25Q_WaitBusyClear();
     if(ResBusyWait==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
 
@@ -907,10 +907,10 @@ unsigned int SPIFI_W25Q_PageRead(unsigned int PageAddress, uint8_t *Page)  {
 
 	unsigned int SizeTemp = 16;
 
-	//Сброс контроллера SPIFI
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ SPIFI
 	SPIFI_StatResetSet();
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -935,13 +935,13 @@ unsigned int SPIFI_W25Q_PageRead(unsigned int PageAddress, uint8_t *Page)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	for(i=0; i<SizeTemp; i++)  {
@@ -964,10 +964,10 @@ unsigned int SPIFI_W25Q_PageFastRead(unsigned int PageAddress, uint8_t *Page)  {
 
 	unsigned int timeout = 0;
 
-	//Сброс контроллера SPIFI
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ SPIFI
 	SPIFI_StatResetSet();
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -991,21 +991,21 @@ unsigned int SPIFI_W25Q_PageFastRead(unsigned int PageAddress, uint8_t *Page)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->CMD = RgCmd;
 
-    //Проверка установки бита STAT->INTRQ
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->INTRQ
     ResIntrqWaitSet = SPIFI_StatIntrqWaitSet();
     if(ResIntrqWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
 
-    //Ожидание завершения чтения
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     //for(timeout=0; timeout<500000; timeout++)  {
     //	if((SPIFI_CONFIG->STAT & SPIFI_CONFIG_STAT_INTRQ_M) != 0)  {
     //		break;
     //	}
     //}
 
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	for(i=0; i<W25Q_PAGE_SIZE; i++)  {
@@ -1046,7 +1046,7 @@ void SPIFI_W25Q_Reset(void)  {
 */
 
 
-//Проверка установки бита STATUS->CMD
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STATUS->CMD
 unsigned int SPIFI_WaitCmdSet(void)  {
 	unsigned int i = 0;
 
@@ -1062,7 +1062,7 @@ unsigned int SPIFI_WaitCmdSet(void)  {
 
 
 
-//Проверка сброса бита STATUS->CMD
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STATUS->CMD
 unsigned int SPIFI_WaitCmdClear(void)  {
 	unsigned int i = 0;
 
@@ -1078,7 +1078,7 @@ unsigned int SPIFI_WaitCmdClear(void)  {
 
 
 
-//Проверка установки бита STATUS->INTRQ
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STATUS->INTRQ
 unsigned int SPIFI_StatIntrqWaitSet(void)  {
 	unsigned int i = 0;
 
@@ -1094,7 +1094,7 @@ unsigned int SPIFI_StatIntrqWaitSet(void)  {
 
 
 
-//Сброс бита STATUS->INTRQ
+//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STATUS->INTRQ
 void SPIFI_StatIntrqClear(void)  {
 	unsigned int i = 0;
 
@@ -1103,7 +1103,7 @@ void SPIFI_StatIntrqClear(void)  {
 
 
 
-//Установка бита STATUS->RESET
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STATUS->RESET
 void SPIFI_StatResetSet(void)  {
 	unsigned int i = 0;
 
@@ -1112,7 +1112,7 @@ void SPIFI_StatResetSet(void)  {
 
 
 
-//Проверка установки бита STATUS->MCINIT
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STATUS->MCINIT
 unsigned int SPIFI_StatMcinitWaitSet(void)  {
 	unsigned int i = 0;
 
@@ -1128,14 +1128,14 @@ unsigned int SPIFI_StatMcinitWaitSet(void)  {
 
 
 
-//Инициализация режима работы с памятью
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 unsigned int SPIFI_W25Q_InitMemmode(void)  {
 	//unsigned int Error = 0;
 	unsigned int RgMcmd = 0;
 	//unsigned int i = 0;
 	unsigned int ResMcinitWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -1159,14 +1159,14 @@ unsigned int SPIFI_W25Q_InitMemmode(void)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->MCMD = RgMcmd;
 
-    //Проверка установки бита STAT->MCINIT
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->MCINIT
     ResMcinitWaitSet = SPIFI_StatMcinitWaitSet();
     if(ResMcinitWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
 
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	//SPIFI_StatIntrqClear();
 
     return 1;
@@ -1174,14 +1174,14 @@ unsigned int SPIFI_W25Q_InitMemmode(void)  {
 
 
 
-//Инициализация режима работы с памятью
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 unsigned int SPIFI_W25Q_InitMemmodeQuad(void)  {
 	//unsigned int Error = 0;
 	unsigned int RgMcmd = 0;
 	//unsigned int i = 0;
 	unsigned int ResMcinitWaitSet = 0;
 
-	//Сброс бита STAT:INTRQ
+	//пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	SPIFI_StatIntrqClear();
 
 	//ADDRESS
@@ -1193,7 +1193,7 @@ unsigned int SPIFI_W25Q_InitMemmodeQuad(void)  {
     //CLIMIT
     SPIFI_CONFIG->CLIMIT = 0x00000000;
 
-    //Сбрасываем бит CTRL:DUAL, чтобы использовать 4 провода
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ CTRL:DUAL, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 4 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     SPIFI_CONFIG->CTRL &= ~(1<<SPIFI_CONFIG_CTRL_DUAL_S);
 
     //MCMD
@@ -1208,14 +1208,14 @@ unsigned int SPIFI_W25Q_InitMemmodeQuad(void)  {
     	//RgCmd |= (0 << SPIFI_CONFIG_CMD_DATALEN_BUSY_INDEX_S);
     SPIFI_CONFIG->MCMD = RgMcmd;
 
-    //Проверка установки бита STAT->MCINIT
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT->MCINIT
     ResMcinitWaitSet = SPIFI_StatMcinitWaitSet();
     if(ResMcinitWaitSet==0)  {
-    	//надо добавить установку бита STAT:RESET
+    	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:RESET
     	return 0;
     }
 
-    //Сброс бита STAT:INTRQ
+    //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ STAT:INTRQ
 	//SPIFI_StatIntrqClear();
 
     return 1;

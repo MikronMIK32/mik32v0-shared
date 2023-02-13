@@ -8,7 +8,7 @@
 #include "inttypes.h"
 #include "stdbool.h"
 
-#include "periphery/rtc.h"
+#include "rtc.h"
 
 
 /** Запускает RTC

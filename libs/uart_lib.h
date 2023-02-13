@@ -8,7 +8,7 @@
 #include "inttypes.h"
 #include <stdbool.h>
 
-#include "periphery/uart.h"
+#include "uart.h"
 
 
 /** Инициализирует контроллер USART

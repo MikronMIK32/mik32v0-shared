@@ -1,5 +1,5 @@
 
-#include "libs/rtc_lib.h"
+#include "rtc_lib.h"
 
 void RTC_Enable(RTC_TypeDef* rtc)
 {

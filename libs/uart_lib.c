@@ -1,5 +1,5 @@
 
-#include "libs/uart_lib.h"
+#include "uart_lib.h"
 
 
 bool UART_Init(UART_TypeDef* uart, 
