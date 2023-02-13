@@ -6,18 +6,22 @@ ENTRY(_start)
 
 
 MEMORY {
-  rom : ORIGIN = DEFINED(ROM_ORIGIN) ? ROM_ORIGIN : 0x00000000, LENGTH = DEFINED(ROM_ORIGIN) ? 32K : 8K
-  ram : ORIGIN = 0x02000000, LENGTH = 16K
+  rom (RX): ORIGIN = 0x00000000, LENGTH = 8K
+  ram (RWX): ORIGIN = 0x02000000, LENGTH = 16K
 }
 
 STACK_SIZE = 1024;
 
-CL_SIZE = 32;
+CL_SIZE = 16;
 
 SECTIONS {
-    .text  : {
+    .text ORIGIN(rom) : {
         PROVIDE(__TEXT_START__ = .);
         *crt0.o(.text .text.*)
+        *(.text.smallsysteminit)
+        *(.text.SmallSystemInit)
+        . = 0xC0;
+        *crt0.o(.trap_text)
 
         *(.text)
         *(.text.*)
