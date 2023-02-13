@@ -85,6 +85,8 @@
 //
 #define TIMER16_CFGR_TRIGSEL_S              13
 #define TIMER16_CFGR_TRIGSEL_M              (0x7 << TIMER16_CFGR_TRIGSEL_S)
+#define TIMER16_CFGR_PRESC_S                9
+#define TIMER16_CFGR_PRESC_M                (0x111 << TIMER16_CFGR_PRESC_S)
 //
 #define TIMER16_CFGR_TRGFLT_S               6
 #define TIMER16_CFGR_TRGFLT_M               (0x3 << TIMER16_CFGR_TRGFLT_S)
