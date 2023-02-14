@@ -6,22 +6,18 @@ ENTRY(_start)
 
 
 MEMORY {
-  rom (RX): ORIGIN = 0x00000000, LENGTH = 8K
-  ram (RWX): ORIGIN = 0x02000000, LENGTH = 16K
+  rom : ORIGIN = DEFINED(ROM_ORIGIN) ? ROM_ORIGIN : 0x02000000, LENGTH = 8K
+  ram : ORIGIN = 0x02002000, LENGTH = 8K
 }
 
 STACK_SIZE = 1024;
 
-CL_SIZE = 16;
+CL_SIZE = 32;
 
 SECTIONS {
-    .text ORIGIN(rom) : {
+    .text  : {
         PROVIDE(__TEXT_START__ = .);
         *crt0.o(.text .text.*)
-        *(.text.smallsysteminit)
-        *(.text.SmallSystemInit)
-        . = 0xC0;
-        *crt0.o(.trap_text)
 
         *(.text)
         *(.text.*)
@@ -43,7 +39,6 @@ SECTIONS {
     
     __DATA_IMAGE_START__ = LOADADDR(.data);
     __DATA_IMAGE_END__ = LOADADDR(.data) + SIZEOF(.data);
-    ASSERT(__DATA_IMAGE_END__ < ORIGIN(rom) + LENGTH(rom), "Data image overflows rom section")
 
     /* thread-local data segment */
     .tdata : {
