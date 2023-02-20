@@ -80,10 +80,10 @@
         volatile uint32_t       TSENS_CLEAR_IRQ;
         volatile uint32_t       TSENS_VALUE;
         volatile uint32_t       TSENS_SINGLE;
-        volatile uint32_t       TSENS_CONTINIUS;
+        volatile uint32_t       TSENS_CONTINUOUS;
         volatile uint32_t       REFV_CONFIG;
         volatile uint32_t       ADC_CONFIG;
-        volatile uint32_t       ADC_CONTINIUS;
+        volatile uint32_t       ADC_CONTINUOUS;
         volatile uint32_t       ADC_SINGLE;
         volatile uint32_t       ADC_VALID;
         volatile uint32_t       ADC_VALUE;
