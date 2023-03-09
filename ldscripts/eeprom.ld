@@ -18,6 +18,8 @@ SECTIONS {
     .text ORIGIN(rom) : {
         PROVIDE(__TEXT_START__ = .);
         *crt0.o(.text .text.*)
+        *(.text.smallsysteminit)
+        *(.text.SmallSystemInit)
         . = 0xC0;
         *crt0.o(.trap_text)
 
