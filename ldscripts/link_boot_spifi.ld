@@ -13,7 +13,7 @@ MEMORY {
 
 STACK_SIZE = 1024;
 
-CL_SIZE = 32;
+CL_SIZE = 16;
 
 SECTIONS {
     .boot : 
