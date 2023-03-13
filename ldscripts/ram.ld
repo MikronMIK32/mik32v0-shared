@@ -21,7 +21,7 @@ SECTIONS {
         *(.text.smallsysteminit)
         *(.text.SmallSystemInit)
         . = 0xC0;
-        *crt0.o(.trap_text)
+        KEEP(*crt0.o(.trap_text))
 
         *(.text)
         *(.text.*)
