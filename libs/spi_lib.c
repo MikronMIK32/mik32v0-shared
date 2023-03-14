@@ -23,7 +23,7 @@ void SPI_Init(SPI_TypeDef* s, uint32_t config)
 
 void SPI_WaitTxNotFull(SPI_TypeDef* s)
 {
-    while (s->IntStatus & SPI_TX_FIFO_not_full_M == 0) ;
+    while ((s->IntStatus & SPI_TX_FIFO_not_full_M) == 0) ;
 }
 
 int SPI_TimeoutWaitTxNotFull(SPI_TypeDef* s, uint32_t timeout)
