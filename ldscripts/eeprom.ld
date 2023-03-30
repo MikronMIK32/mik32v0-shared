@@ -6,7 +6,7 @@ ENTRY(_start)
 
 
 MEMORY {
-  rom (RX): ORIGIN = 0x00000000, LENGTH = 8K
+  rom (RX): ORIGIN = 0x01000000, LENGTH = 8K
   ram (RWX): ORIGIN = 0x02000000, LENGTH = 16K
 }
 
@@ -20,7 +20,7 @@ SECTIONS {
         *crt0.o(.text .text.*)
         *(.text.smallsysteminit)
         *(.text.SmallSystemInit)
-        . = 0xC0;
+        . = ORIGIN(rom) + 0xC0;
         KEEP(*crt0.o(.trap_text))
 
         *(.text)
