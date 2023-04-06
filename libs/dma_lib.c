@@ -22,7 +22,7 @@ void DMA_Wait (DMA_CONFIG_TypeDef* dma, uint32_t channel_index)
 
     uint32_t channel_bits = 0;
 
-    while ((dma->ConfigStatus  & ((1 << channel_index) << DMA_STATUS_READY_S)) == 0) ;
+    while ((dma->CONTROL  & ((1 << channel_index) << DMA_STATUS_READY_S)) == 0) ;
 }
 
 
