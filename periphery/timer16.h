@@ -68,6 +68,22 @@
 #define TIMER16_ICR_CMPMCF_S                0
 #define TIMER16_ICR_CMPMCF_M                (0x1 << TIMER16_ICR_CMPMCF_S)
 
+/* Регистр IER */
+#define TIMER16_IER_DOWNIE_S                6
+#define TIMER16_IER_DOWNIE_M                (0x1 << TIMER16_IER_DOWNIE_S)
+#define TIMER16_IER_UPIE_S                  5
+#define TIMER16_IER_UPIE_M                  (0x1 << TIMER16_IER_UPIE_S)
+#define TIMER16_IER_ARROKIE_S               4
+#define TIMER16_IER_ARROKIE_M               (0x1 << TIMER16_IER_ARROKIE_S)
+#define TIMER16_IER_CMPOKIE_S               3
+#define TIMER16_IER_CMPOKIE_M               (0x1 << TIMER16_IER_CMPOKIE_S)
+#define TIMER16_IER_EXTTRIGIE_S             2
+#define TIMER16_IER_EXTTRIGIE_M             (0x1 << TIMER16_IER_EXTTRIGIE_S)
+#define TIMER16_IER_ARRMIE_S                1
+#define TIMER16_IER_ARRMIE_M                (0x1 << TIMER16_IER_ARRMIE_S)
+#define TIMER16_IER_CMPMIE_S                0
+#define TIMER16_IER_CMPMIE_M                (0x1 << TIMER16_IER_CMPMIE_S)
+
 #define TIMER16_CFGR_ENC_S                  24
 #define TIMER16_CFGR_ENC_M                  (1 << TIMER16_CFGR_ENC_S)
 #define TIMER16_CFGR_COUNTMODE_S            23
