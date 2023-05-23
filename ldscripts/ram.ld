@@ -11,7 +11,7 @@ MEMORY {
 
 STACK_SIZE = 1024;
 
-CL_SIZE = 16;
+CL_SIZE = 4;
 
 SECTIONS {
     .text ORIGIN(ram) : {
