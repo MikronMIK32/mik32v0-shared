@@ -53,6 +53,10 @@
 #define TIMER32_INT_OVERFLOW_M		        (1 << TIMER32_INT_OVERFLOW_S)
 #define TIMER32_INT_UNDERFLOW_S		        1
 #define TIMER32_INT_UNDERFLOW_M		        (1 << TIMER32_INT_UNDERFLOW_S)
+#define TIMER32_INT_IC_S                    2 
+#define TIMER32_INT_IC_M(channelIndex)      ((1 << channelIndex) << TIMER32_INT_IC_S)
+#define TIMER32_INT_OC_S                    6 
+#define TIMER32_INT_OC_M(channelIndex)      ((1 << channelIndex) << TIMER32_INT_OC_S)
 
 
 //CH_CNTRL
