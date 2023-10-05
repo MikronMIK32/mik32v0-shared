@@ -1,5 +1,11 @@
+<<<<<<< Updated upstream
 #include <string.h>
 #include <stdint.h>
+=======
+
+// #include <string.h>
+// #include <stdint.h>
+>>>>>>> Stashed changes
 
 #define MEMCPY_LOOP_BODY(a, b, t) {	\
     t tt = *b;				\

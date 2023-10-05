@@ -31,6 +31,7 @@
 
 /* Регистр бит дешифратора OTPDEC */
 #define OTP_OTPDEC_DECO_S                          0
+#define OTP_OTPDEC_DECO_M                          (0x3FF << OTP_OTPDEC_DECO_S)
 
 /* Регистр управления временными параметрами OTPADJ */
 #define OTP_OTPADJ_N_RSU_S							0
@@ -41,6 +42,11 @@
 #define OTP_OTPADJ_N_RH_M                          (0b111 << OTP_OTPADJ_N_RH_S)
 #define OTP_OTPADJ_SEL_UPP_READ_I_S                24
 #define OTP_OTPADJ_SEL_UPP_READ_I_M                (0b111 << OTP_OTPADJ_SEL_UPP_READ_I_S)
+#define OTP_OTPADJ_SEL_UPP_READ_I_2_0V_M           (0b000 << OTP_OTPADJ_SEL_UPP_READ_I_S)
+#define OTP_OTPADJ_SEL_UPP_READ_I_2_5V_M           (0b001 << OTP_OTPADJ_SEL_UPP_READ_I_S)
+#define OTP_OTPADJ_SEL_UPP_READ_I_3_0V_M           (0b011 << OTP_OTPADJ_SEL_UPP_READ_I_S)
+#define OTP_OTPADJ_SEL_UPP_READ_I_VDD18_M          (0b010 << OTP_OTPADJ_SEL_UPP_READ_I_S)
+#define OTP_OTPADJ_SEL_UPP_READ_I_VDD5_M           (0b110 << OTP_OTPADJ_SEL_UPP_READ_I_S)
 #define OTP_OTPADJ_SEL_READ_CUR_I_S                27
 #define OTP_OTPADJ_SEL_READ_CUR_I_M                (0b1 << OTP_OTPADJ_SEL_READ_CUR_I_S)
 #define OTP_OTPADJ_POWER_OFF_I_S                   28
