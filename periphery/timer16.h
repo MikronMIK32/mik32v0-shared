@@ -85,8 +85,6 @@
 #define TIMER16_ICR_CMPMCF_S                0
 #define TIMER16_ICR_CMPMCF_M                (0x1 << TIMER16_ICR_CMPMCF_S)
 
-<<<<<<< Updated upstream
-=======
 // Регистр IER
 #define TIMER16_IER_DOWNIE_S                6
 #define TIMER16_IER_DOWNIE_M                (0x1 << TIMER16_IER_DOWNIE_S)
@@ -104,7 +102,6 @@
 #define TIMER16_IER_CMPMIE_M                (0x1 << TIMER16_IER_CMPMIE_S)
 
 // Регистр CFGR
->>>>>>> Stashed changes
 #define TIMER16_CFGR_ENC_S                  24
 #define TIMER16_CFGR_ENC_M                  (1 << TIMER16_CFGR_ENC_S)
 #define TIMER16_CFGR_COUNTMODE_S            23

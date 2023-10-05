@@ -6,7 +6,8 @@ ENTRY(_start)
 
 
 MEMORY {
-  ram (RWX): ORIGIN = 0x02000000, LENGTH = 16K
+  rom (RX): ORIGIN = 0x02000000, LENGTH = 8K
+  ram (RWX): ORIGIN = 0x02002000, LENGTH = 8K
 }
 
 STACK_SIZE = 1024;
@@ -14,12 +15,12 @@ STACK_SIZE = 1024;
 CL_SIZE = 16;
 
 SECTIONS {
-    .text ORIGIN(ram) : {
+    .text ORIGIN(rom) : {
         PROVIDE(__TEXT_START__ = .);
         *crt0.o(.text .text.*)
         *(.text.smallsysteminit)
         *(.text.SmallSystemInit)
-        . = ORIGIN(ram) + 0xC0;
+        . = ORIGIN(rom) + 0xC0;
         KEEP(*crt0.o(.trap_text))
 
         *(.text)
@@ -28,7 +29,7 @@ SECTIONS {
         *(.rodata.*)      
         . = ALIGN(CL_SIZE);
         PROVIDE(__TEXT_END__ = .);
-    } >ram 
+    } >rom 
 
     .data : 
     AT( __TEXT_END__ ) {
@@ -42,7 +43,7 @@ SECTIONS {
     
     __DATA_IMAGE_START__ = LOADADDR(.data);
     __DATA_IMAGE_END__ = LOADADDR(.data) + SIZEOF(.data);
-    ASSERT(__DATA_IMAGE_END__ < ORIGIN(ram) + LENGTH(ram) - STACK_SIZE, "Data image overflows ram section")
+    ASSERT(__DATA_IMAGE_END__ < ORIGIN(rom) + LENGTH(rom), "Data image overflows rom section")
 
     /* thread-local data segment */
     .tdata : {

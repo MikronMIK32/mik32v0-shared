@@ -4,13 +4,15 @@
 /** \file
     Библиотека для работы с контроллером USART.
 */
-
+#include "mik32_hal_pcc.h"
+#include "mik32_hal_gpio.h"
 #include "inttypes.h"
 #include <stdbool.h>
 
 #include "uart.h"
 #include "mcu32_memory_map.h"
 
+void HAL_UART_MspInit(UART_TypeDef* uart);
 
 /** Инициализирует контроллер USART
 

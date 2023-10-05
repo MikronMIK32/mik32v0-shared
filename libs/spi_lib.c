@@ -23,11 +23,7 @@ void SPI_Init(SPI_TypeDef* s, uint32_t config)
 
 void SPI_WaitTxNotFull(SPI_TypeDef* s)
 {
-<<<<<<< Updated upstream
-    while (s->IntStatus & SPI_TX_FIFO_not_full_M == 0) ;
-=======
     while ((s->INT_STATUS & SPI_INT_STATUS_TX_FIFO_NOT_FULL_M) == 0) ;
->>>>>>> Stashed changes
 }
 
 int SPI_TimeoutWaitTxNotFull(SPI_TypeDef* s, uint32_t timeout)

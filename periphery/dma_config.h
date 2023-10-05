@@ -67,18 +67,10 @@
 #define DMA_STATUS_READY_S                  0
 #define DMA_STATUS_READY_M                  (DMA_CHANNEL_M << DMA_STATUS_READY_S)
 #define DMA_STATUS_READY(i)                 ((1 << (DMA_STATUS_READY_S + (i))) & DMA_STATUS_READY_M)
-<<<<<<< Updated upstream
-#define DMA_STATUS_IRQ_S                    1*DMA_CHANNEL_COUNT
-#define DMA_STATUS_IRQ_M                    (DMA_CHANNEL_M << DMA_STATUS_IRQ_S)
-#define DMA_CLEAR_IRQ_S                     0
-#define DMA_STATUS_ERROR_S                  2*DMA_CHANNEL_COUNT
-#define DMA_STATUS_ERROR_M                  (DMA_CHANNEL_M << DMA_STATUS_ERROR_S)
-=======
 #define DMA_STATUS_CHANNEL_IRQ_S            1 * DMA_CHANNEL_COUNT
 #define DMA_STATUS_CHANNEL_IRQ_M            (DMA_CHANNEL_M << DMA_STATUS_CHANNEL_IRQ_S)
 #define DMA_STATUS_CHANNEL_BUS_ERROR_S      2 * DMA_CHANNEL_COUNT
 #define DMA_STATUS_CHANNEL_BUS_ERROR_M      (DMA_CHANNEL_M << DMA_STATUS_CHANNEL_BUS_ERROR_S)
->>>>>>> Stashed changes
 
 #define DMA_CONFIG_CLEAR_LOCAL_IRQ_S       0
 #define DMA_CONFIG_CLEAR_LOCAL_IRQ_M       (DMA_CHANNEL_M << DMA_CONFIG_CLEAR_LOCAL_IRQ_S)
@@ -100,29 +92,16 @@
     typedef struct
     {
 
-<<<<<<< Updated upstream
-        volatile uint32_t DESTINATIONS ;  // 0x00
-        volatile uint32_t SOURCE ;        // 0x04
-        volatile uint32_t LEN  ;          // 0x08        
-        volatile uint32_t CONFIG ;        // 0x0c
-    } DMA_CHANNEL_TypeDef  ;
-=======
         volatile uint32_t DST;      // 0x00
         volatile uint32_t SRC;      // 0x04
         volatile uint32_t LEN;      // 0x08        
         volatile uint32_t CFG;      // 0x0c
     } DMA_CHANNEL_TypeDef;
->>>>>>> Stashed changes
     
     typedef struct
     { 
         DMA_CHANNEL_TypeDef CHANNELS[DMA_CHANNEL_COUNT];
-<<<<<<< Updated upstream
-        volatile uint32_t ConfigStatus ;  // 0x80
-            
-=======
         volatile uint32_t CONFIG_STATUS;    // 0x40 
->>>>>>> Stashed changes
     } DMA_CONFIG_TypeDef;
 #endif
 

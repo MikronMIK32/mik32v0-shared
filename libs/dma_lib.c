@@ -22,11 +22,7 @@ void DMA_Wait (DMA_CONFIG_TypeDef* dma, uint32_t channel_index)
 
     // uint32_t channel_bits = 0;
 
-<<<<<<< Updated upstream
-    while (dma->ConfigStatus  & ((1 << channel_index) << DMA_STATUS_READY_S) == 0) ;
-=======
     while ((dma->CONFIG_STATUS  & ((1 << channel_index) << DMA_STATUS_READY_S)) == 0) ;
->>>>>>> Stashed changes
 }
 
 
@@ -44,7 +40,7 @@ void DMA_StartNewLlTask(DMA_CONFIG_TypeDef* dma, uint32_t channel_index,
 }
 
 
-//Ожидание окончания передачи с таймаутом
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 unsigned int DMA_Wait_Timeout (DMA_CONFIG_TypeDef* dma, uint32_t channel_index)  {
 	unsigned int TIMEOUT = 30000;
 	unsigned int wait = 0;
@@ -57,7 +53,7 @@ unsigned int DMA_Wait_Timeout (DMA_CONFIG_TypeDef* dma, uint32_t channel_index) 
     channel_bits |= (1 << channel_index) << DMA_PERROR_SRC_S;
     channel_bits |= (1 << channel_index) << DMA_PERROR_DST_S;
 
-    //Ожидание окончания передачи с таймаутом
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	for(wait=0;wait<TIMEOUT;wait++)  {
     	if((dma->DMA_STATUS & channel_bits) != 0)  {
     		break;
@@ -71,7 +67,7 @@ unsigned int DMA_Wait_Timeout (DMA_CONFIG_TypeDef* dma, uint32_t channel_index) 
 
 
 
-//Проверка завершения задания в канале
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 unsigned int DMA_ChnDone (DMA_CONFIG_TypeDef* dma, uint32_t channel_index)  {
     if ((dma->ENABLE_CH & (1 << channel_index)) == 0)  {
         return DMA_CHN_DONE_ERROR_ENABLE;
@@ -79,19 +75,19 @@ unsigned int DMA_ChnDone (DMA_CONFIG_TypeDef* dma, uint32_t channel_index)  {
 
     uint32_t channel_bits = 0;
 
-    //Успешное завершение
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     channel_bits = (1 << channel_index) << DMA_DONE_S;
     if((dma->DMA_STATUS & channel_bits) != 0)  {
     	return DMA_CHN_DONE_ERROR_NO;
     }
 
-    //Ошибка источника
+    //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     channel_bits = (1 << channel_index) << DMA_PERROR_SRC_S;
     if((dma->DMA_STATUS & channel_bits) != 0)  {
     	return DMA_CHN_DONE_ERROR_SRC;
     }
 
-    //Ошибка приемника
+    //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     channel_bits = (1 << channel_index) << DMA_PERROR_DST_S;
     if((dma->DMA_STATUS & channel_bits) != 0)  {
     	return DMA_CHN_DONE_ERROR_DST;
@@ -102,23 +98,23 @@ unsigned int DMA_ChnDone (DMA_CONFIG_TypeDef* dma, uint32_t channel_index)  {
 
 
 
-//Проверка завершения задания во всех каналах
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 unsigned int DMA_AllChnDone (DMA_CONFIG_TypeDef* dma)  {
     if (dma->ENABLE_CH != DMA_ENABLE_M)  {
         return DMA_CHN_DONE_ERROR_ENABLE;
     }
 
-    //Успешное завершение
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     if((dma->DMA_STATUS & DMA_DONE_M) == DMA_DONE_M)  {
     	return DMA_CHN_DONE_ERROR_NO;
     }
 
-    //Ошибка источника
+    //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     if((dma->DMA_STATUS & DMA_PERROR_SRC_M) != 0)  {
     	return DMA_CHN_DONE_ERROR_SRC;
     }
 
-    //Ошибка приемника
+    //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     if((dma->DMA_STATUS & DMA_PERROR_DST_M) != 0)  {
     	return DMA_CHN_DONE_ERROR_DST;
     }
