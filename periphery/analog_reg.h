@@ -22,9 +22,11 @@
 #define TSENS_CFG_NPD_CLK_M         (1 << TSENS_CFG_NPD_CLK_S)
 #define TSENS_CFG_NRST_S            2
 #define TSENS_CFG_NRST_M            (1 << TSENS_CFG_NRST_S)
-#define TSENS_CFG_CLK_MUX_S         3
+#define TSENS_CFG_TRIM_S            3
+#define TSENS_CFG_TRIM_M            (0xFF << TSENS_CFG_DIV)
+#define TSENS_CFG_CLK_MUX_S         11
 #define TSENS_CFG_CLK_MUX_M         (0b111 << TSENS_CFG_CLK_MUX_S)
-#define TSENS_CFG_DIV_S             13
+#define TSENS_CFG_DIV_S             14
 #define TSENS_CFG_DIV_M             (0x3FF << TSENS_CFG_DIV)
 
 #define TSENS_TRESHOLD_HI_S    0
@@ -52,8 +54,12 @@
 #define TSENS_CLEAR_IRQ_LOW_CLEAR_S     2
 #define TSENS_CLEAR_IRQ_LOW_CLEAR_M     (1 << TSENS_CLEAR_IRQ_LOW_CLEAR_S)
 
- 
-#define TSENS_VALUE(i)          (uint32_t)((i+273.15)*1024/619.2)
+#define TSENS_VALUE_EOC_S               10
+#define TSENS_VALUE_EOC_M               (1 << TSENS_VALUE_EOC_S)
+#define TSENS_VALUE_VALUE_S             0
+#define TSENS_VALUE_VALUE_M             (0x3FF << TSENS_VALUE_VALUE_S) 
+#define TSENS_CELSIUS_TO_VALUE(i)       (uint32_t)((i+273.15)*1024/619.2)
+#define TSENS_VALUE_TO_CELSIUS(v)       (61920*(v)/10240*10-27315) // Значение температуры в 100 раз больше
 
 #define ADC_CONFIG_EN_S                0
 #define ADC_CONFIG_EN_M                (1 << ADC_CONFIG_EN_S)
